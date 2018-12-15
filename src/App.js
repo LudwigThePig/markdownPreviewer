@@ -3,26 +3,59 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      textarea: placeholder
+    }
+    this.handleChange = this.handleChange.bind(this);
+
+  }
+
+  handleChange(event) {
+    this.setState({
+      textarea: event.target.value
+    });
+  }
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+          <Field markdown={this.state.textarea} handleChange={this.handleChange} />
+          <Display markdown={this.state.textarea} />
       </div>
     );
   }
 }
+
+class Field extends Component {
+  constructor(){
+    super();
+  }
+  render(){
+    return(
+      <div>
+        <textarea id='markdown-editor'rows="10" cols="50" value={this.props.markdown} onChange={this.props.handleChange}></textarea>
+      </div>
+    )
+  }
+}
+
+class Display extends Component{
+  constructor(){
+    super();
+  }
+  render(){
+    return(
+      <div>
+      {this.props.markdown}
+      </div>
+    )
+  }
+}
+
+const placeholder = `<div>TODO: Add a compelling placeholder</div>`
 
 export default App;
