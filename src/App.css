@@ -1,34 +1,49 @@
-.App {
-  text-align: center;
-}
 
-
-
-.App {
+body{
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr minmax(20vh 2fr) minmax(20vh 2fr);
+  justify-items: center;
 
+  /* default mobile view */
+  grid-template-areas: "header header" "editor editor" "display display"; 
+}
+
+@media (min-width: 600px){
+  .App{
+  grid-template-areas: "header header" "editor display" "editor display";
+  }
+}
+
+#header{
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#editor{
+  grid-area: editor;
+}
 #markdown-editor{
   background: #423;
   color: #eee;
-  height: 500;
-  width: 100;
+  width: 80%;
+  
 }
 
 #display{
-  height:50vh;
-  width: 80vw;
   background: #eef;
   border: 3px solid #645;
   color: black;
-
+  grid-area: display;
+  width: 80%;
+  overflow: scroll;
 }
 
 .App-logo {
