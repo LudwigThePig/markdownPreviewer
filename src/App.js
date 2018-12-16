@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import marked from 'marked';
 
 class App extends Component {
   constructor(){
@@ -31,9 +32,6 @@ class App extends Component {
 }
 
 class Field extends Component {
-  constructor(){
-    super();
-  }
   render(){
     return(
       <div>
@@ -44,18 +42,18 @@ class Field extends Component {
 }
 
 class Display extends Component{
-  constructor(){
-    super();
-  }
+
   render(){
+    // function prep(){
+    //   const markup = {marked(this.props.markdown, {sanitize:true})};
+    //   return { markup}
+    // }
     return(
-      <div>
-      {this.props.markdown}
-      </div>
+      <div id='display' dangerouslySetInnerHTML={{__html: marked(this.props.markdown)}} />
     )
   }
 }
 
-const placeholder = `<div>TODO: Add a compelling placeholder</div>`
+const placeholder = `<h1>TODO: Add a compelling placeholder</h1>`
 
 export default App;

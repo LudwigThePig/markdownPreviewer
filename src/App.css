@@ -16,10 +16,19 @@
 }
 
 #markdown-editor{
-  background: #114;
+  background: #423;
   color: #eee;
   height: 500;
   width: 100;
+}
+
+#display{
+  height:50vh;
+  width: 80vw;
+  background: #eef;
+  border: 3px solid #645;
+  color: black;
+
 }
 
 .App-logo {
