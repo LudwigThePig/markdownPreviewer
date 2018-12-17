@@ -1,22 +1,35 @@
 
 body{
   background-color: #282c34;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
   color: white;
 }
 .App {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr minmax(20vh 2fr) minmax(20vh 2fr);
-  justify-items: center;
+  grid-template-rows: 10vh 45vh 45vh;
 
-  /* default mobile view */
+  justify-items: center;
+  grid-gap: 10px; 
+
+  /* mobile view DEFAULT*/
   grid-template-areas: "header header" "editor editor" "display display"; 
 }
 
-@media (min-width: 600px){
+/* desktop view */
+@media (min-width: 800px){
   .App{
   grid-template-areas: "header header" "editor display" "editor display";
+  grid-template-rows: 10vh repeat(2, 2fr);
+
+  }
+  textarea{
+    overflow: auto;
+  }
+
+  #preview, #editor{
+    overflow: auto;
+    height: 85vh; 
   }
 }
 
@@ -25,25 +38,38 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: no-wrap;
 }
 
 #editor{
   grid-area: editor;
+  width: 90%;
 }
-#markdown-editor{
+textarea{
   background: #423;
   color: #eee;
-  width: 80%;
+  width: 100%;
+  height: 100%;
   
 }
 
-#display{
-  background: #eef;
+#preview{
+  background: #fff;
   border: 3px solid #645;
-  color: black;
+  color: #333;
   grid-area: display;
-  width: 80%;
-  overflow: scroll;
+  width: 90%;
+}
+
+#preview img{
+  max-width: 90%;
+  max-height: 400px;
+  height:auto;
+  width: auto;
+}
+code{
+  background: #222;
+  color: limegreen;
 }
 
 .App-logo {
