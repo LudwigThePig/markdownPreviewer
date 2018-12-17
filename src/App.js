@@ -55,8 +55,8 @@ class Header extends Component {
 class Field extends Component {
   render(){
     return(
-      <div id='editor'>
-        <textarea value={this.props.markdown} onChange={this.props.handleChange} spellcheck="false"></textarea>
+      <div id='editor-a'>
+        <textarea id="editor" value={this.props.markdown} onChange={this.props.handleChange} spellcheck="false"></textarea>
       </div>
     )
   }
@@ -96,6 +96,10 @@ while(i !== 'idea'){
   console.log('We need an idea!');
 }
 \`\`\`
+
+>The first Apple was just a culmination of my whole life.
+
+The Woz
 
 ![ideaman](https://cnet2.cbsistatic.com/img/NYn58XCSVhK54AlJHwNmVgrfL6I=/570x0/2010/04/23/29f88fdd-fdb4-11e2-8c7c-d4ae52e62bcc/wozGRAY.jpg)
 now **THAT** is an idea man!

@@ -41,7 +41,7 @@ body{
   white-space: no-wrap;
 }
 
-#editor{
+#editor-a{
   grid-area: editor;
   width: 90%;
 }
@@ -70,6 +70,12 @@ textarea{
 code{
   background: #222;
   color: limegreen;
+}
+blockquote{
+  background: #eee;
+  color: #333;
+  font-style: italic;
+  font-weight: bold;
 }
 
 .App-logo {
